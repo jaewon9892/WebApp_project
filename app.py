@@ -74,6 +74,12 @@ if st.button("Complete") and task_id:
     mark_task_completed(task_id)
     st.success(f"Task '{task_id}' updated!")
 
+# Task 리스트를 보여주는 부분
 tasks = get_task()
+if tasks:
+    st.subheader("Your Tasks")
+    for task in tasks:
+        st.write(f"{task[0]}. {task[1]} (Created at: {task[3]})")
+else:
+    st.info("No tasks found. Add a new task to get started!")
 
-st.write(tasks)
